@@ -4,54 +4,57 @@
 <title>Office Billing</title>
 <meta name="color-scheme" content="dark light">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
-<style>
-:root{--bg:#07110c;--pop:#0e1c14;--glass:rgba(36,82,55,.30);--c2:rgba(255,255,255,.07);--tx:#eaf5ee;--mu:#93ac9f;--bd:rgba(160,225,185,.17);--ac:#F58634;--ac2:#ffa75e;--ok:#5fe39a;--bad:#ff7b8f;--wn:#fbbf24;--glow:0 0 0 1px rgba(245,134,52,.25),0 8px 30px rgba(245,134,52,.12);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root[data-theme="light"]{--bg:#eef4ef;--pop:#fff;--glass:rgba(255,255,255,.92);--c2:rgba(36,82,55,.07);--tx:#13261b;--mu:#5a6f62;--bd:rgba(36,82,55,.18);--ac:#F58634;--ac2:#ffa75e;--ok:#15803d;--bad:#c81e3a;--wn:#a16207;--glow:0 6px 24px rgba(36,82,55,.16);color-scheme:light}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:var(--tx);font:15px/1.5 "Space Grotesk","Segoe UI",system-ui,sans-serif;font-variant-numeric:tabular-nums;background-color:var(--bg);background-image:radial-gradient(900px 520px at 88% -8%,rgba(36,82,55,.65),transparent 60%),radial-gradient(760px 520px at -6% 8%,rgba(245,134,52,.13),transparent 60%),linear-gradient(rgba(140,220,170,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(140,220,170,.05) 1px,transparent 1px);background-size:auto,auto,44px 44px,44px 44px;background-attachment:fixed}
-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:20px;padding:12px 28px;background:#245237;color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
-header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--ac),var(--ac2),transparent)}
-.brand{display:flex;align-items:center;gap:10px;white-space:nowrap}.brand i{width:22px;height:22px;border-radius:7px;background:conic-gradient(from 210deg,var(--ac),var(--ac2),var(--ac));box-shadow:0 0 18px rgba(245,134,52,.55)}
-.brand b{font-size:18px;letter-spacing:.3px}
-nav{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:none}nav::-webkit-scrollbar{display:none}
-nav button{background:none;border:1px solid transparent;color:rgba(255,255,255,.78);padding:8px 14px;border-radius:99px;cursor:pointer;font:inherit;white-space:nowrap;transition:.15s}
-nav button:hover{color:#fff;background:rgba(255,255,255,.12)}
-nav button.on{color:#1b1208;background:var(--ac);border-color:var(--ac);font-weight:700}
-#sync,#who{font-size:12.5px;color:rgba(255,255,255,.78);white-space:nowrap}header .btn.g{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
-.tg{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:16px}
-main{max-width:1180px;margin:0 auto;padding:32px 28px 60px}
-@media(max-width:760px){header{padding:10px 14px;gap:10px;flex-wrap:wrap}#sync{display:none}nav{order:3;flex-basis:100%}main{padding:18px 14px 50px}.hero h1{font-size:26px}}
-.hero{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:28px;margin-bottom:20px;border:1px solid var(--bd);border-radius:20px;background:linear-gradient(135deg,#245237,rgba(36,82,55,.55));color:#fff;box-shadow:var(--glow)}.hero .k,.hero .mu{color:rgba(255,255,255,.78)}
-.hero h1{margin:4px 0 2px;font-size:34px;letter-spacing:-.5px;line-height:1.1}.hero .acts{display:flex;gap:8px;flex-wrap:wrap}
-.card{background:var(--glass);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
-.grid .card{margin:0;transition:.2s}.grid .card:hover{border-color:rgba(245,134,52,.45);box-shadow:var(--glow)}
-.k{color:var(--mu);font-size:13px}.v{font-size:28px;font-weight:700;margin-top:2px;text-shadow:0 0 22px rgba(245,134,52,.22)}
-.tw{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}th{color:var(--mu);font-weight:500;font-size:13px}tr:hover td{background:var(--c2)}
+<meta name="theme-color" content="#245237">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',glass:'var(--glass)',c2:'var(--c2)',tx:'var(--tx)',mu:'var(--mu)',bd:'var(--bd)',ac:'var(--ac)',brand:'#245237'},fontFamily:{sans:['Space Grotesk','Segoe UI','system-ui','sans-serif']}}}}</script>
+<style type="text/tailwindcss">
+:root{--bg:#06100b;--pop:rgba(14,28,20,.92);--glass:rgba(36,82,55,.34);--c2:rgba(255,255,255,.08);--tx:#eaf5ee;--mu:#9bb3a6;--bd:rgba(255,255,255,.14);--ac:#F58634;--ac2:#ffa75e;--ok:#5fe39a;--bad:#ff7b8f;--wn:#fbbf24;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#e8f0ea;--pop:rgba(255,255,255,.94);--glass:rgba(255,255,255,.62);--c2:rgba(36,82,55,.08);--tx:#10231a;--mu:#587064;--bd:rgba(36,82,55,.16);--ok:#15803d;--bad:#c81e3a;--wn:#a16207;color-scheme:light}
+body{@apply font-sans antialiased;background:var(--bg);color:var(--tx);font-variant-numeric:tabular-nums;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(600px 460px at 12% 6%,rgba(245,134,52,.24),transparent 65%),radial-gradient(780px 620px at 94% 16%,rgba(36,82,55,.95),transparent 65%),radial-gradient(720px 540px at 55% 105%,rgba(36,82,55,.7),transparent 65%)}
+:root[data-theme="light"] body::before{background:radial-gradient(600px 460px at 10% 6%,rgba(245,134,52,.28),transparent 65%),radial-gradient(780px 620px at 94% 16%,rgba(36,82,55,.3),transparent 65%),radial-gradient(720px 540px at 55% 105%,rgba(36,82,55,.22),transparent 65%)}
+@layer base{h2{@apply text-2xl font-bold}h3{@apply mb-2 text-xl font-bold}main p,#mb p{@apply mb-3 mt-1}}
+@layer components{
+.glass{@apply bg-glass backdrop-blur-2xl border border-bd shadow-[inset_0_1px_0_rgba(255,255,255,.12),0_10px_40px_rgba(0,0,0,.22)]}
+.card{@apply glass rounded-2xl p-4 mb-4 sm:p-5}
+.nv{@apply flex w-full cursor-pointer items-center gap-3 rounded-xl border-0 bg-transparent px-3 py-2.5 text-left text-[15px] text-mu transition hover:bg-c2 hover:text-tx}
+.nv.on{background:rgba(245,134,52,.16);color:var(--tx);font-weight:600;box-shadow:inset 3px 0 0 var(--ac)}.nv.on svg{color:var(--ac)}
+.logo{@apply h-10 w-10 shrink-0 rounded-xl;background:linear-gradient(135deg,var(--ac),#245237);box-shadow:0 0 22px rgba(245,134,52,.45),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn{@apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border-0 px-4 py-2 font-bold text-[#1b1208] transition hover:-translate-y-px hover:brightness-110;background-image:linear-gradient(90deg,var(--ac),var(--ac2));box-shadow:0 6px 20px rgba(245,134,52,.28)}
+.btn.g{@apply border border-bd bg-c2 font-medium text-tx shadow-none backdrop-blur-md;background-image:none}.btn.g:hover{border-color:rgba(245,134,52,.55)}
+.btn.d{@apply border border-bd bg-transparent font-medium shadow-none;background-image:none;color:var(--bad)}
+.btn.s{@apply px-3 py-1 text-[13px]}
+}
+.grid{display:grid;gap:.75rem;margin-bottom:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.grid .card{margin:0;transition:.2s}.grid .card:hover{border-color:rgba(245,134,52,.5);transform:translateY(-2px)}
+.k{color:var(--mu);font-size:13px}.v{font-size:1.75rem;font-weight:700;margin-top:2px}
+.hero{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:28px;margin-bottom:20px;border:1px solid var(--bd);border-radius:24px;background:linear-gradient(135deg,rgba(36,82,55,.9),rgba(36,82,55,.38));color:#fff;backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 16px 50px rgba(0,0,0,.25)}
+.hero::after{content:"";position:absolute;right:-70px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,134,52,.6),transparent 70%)}
+.hero>*{position:relative;z-index:1}.hero h1{margin:4px 0 2px;font-size:2.1rem;line-height:1.1;font-weight:700;letter-spacing:-.5px}.hero .k,.hero .mu{color:rgba(255,255,255,.8)}.hero .acts{display:flex;gap:8px;flex-wrap:wrap}
+.tw{overflow-x:auto}table{width:100%}th,td{padding:11px 8px;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}th{color:var(--mu);font-weight:500;font-size:13px}tr:hover td{background:var(--c2)}
 .r{text-align:right}
-input,select,textarea{font:inherit;color:var(--tx);background:var(--c2);border:1px solid var(--bd);border-radius:10px;padding:9px 12px;width:100%}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(245,134,52,.18)}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--c2);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;width:100%;backdrop-filter:blur(8px)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(245,134,52,.2)}
+option{color:#10231a;background:#fff}
 button:focus-visible,a:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 label{display:block;font-size:13px;color:var(--mu);margin-bottom:4px}
-.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:12px}
-.btn{background:linear-gradient(90deg,var(--ac),var(--ac2));color:#1b1208;border:0;border-radius:10px;padding:9px 18px;cursor:pointer;font:inherit;font-weight:700;box-shadow:0 6px 22px rgba(245,134,52,.22);transition:.15s}
-.btn:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(245,134,52,.38)}
-.btn.g{background:var(--c2);color:var(--tx);border:1px solid var(--bd);font-weight:500;box-shadow:none}.btn.g:hover{border-color:rgba(245,134,52,.5)}
-.btn.d{background:none;color:var(--bad);border:1px solid var(--bd);font-weight:500;box-shadow:none}.btn.s{padding:5px 11px;font-size:13px}
-a.btn{text-decoration:none;display:inline-block}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;margin-bottom:12px}
+a.btn{text-decoration:none;display:inline-flex}
 .bar{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap}
 .tag{padding:2px 10px;border-radius:99px;font-size:12px;border:1px solid currentColor}
 .paid{color:var(--ok)}.partial{color:var(--wn)}.unpaid{color:var(--bad)}
-.ln{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;align-items:end;padding:10px 0;border-bottom:1px solid var(--bd)}.ln .c1,.ln .c2{grid-column:span 2}.ln .btn{height:38px}
-#modal{position:fixed;inset:0;background:rgba(2,4,10,.78);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:24px;z-index:20}
-#modal.open{display:flex}#mb{background:var(--pop);border:1px solid var(--bd);border-radius:18px;padding:24px;width:100%;max-width:900px;box-shadow:var(--glow)}
+.ln{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr));gap:8px;align-items:end;padding:10px 0;border-bottom:1px solid var(--bd)}.ln .c1,.ln .c2{grid-column:span 2}.ln .btn{height:40px}
+#modal{position:fixed;inset:0;background:rgba(2,8,5,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:24px;z-index:50}
+#modal.open{display:flex}#mb{background:var(--pop);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid var(--bd);border-radius:24px;padding:24px;width:100%;max-width:900px;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.45)}
 .tot{margin-left:auto;max-width:300px}.tot div{display:flex;justify-content:space-between;padding:3px 0}
-.mu{color:var(--mu)}#note{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:99px;display:none;z-index:60;font-weight:500}
-
+.mu{color:var(--mu)}#note{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:99px;display:none;z-index:70;font-weight:500;max-width:90vw;text-align:center}
+#side{overflow:hidden}
+@media(max-width:1023px){#side{transform:translateX(-100%)}body.menu #side{transform:none!important}body.menu #scrim{display:block}}
+@media(max-width:640px){input,select,textarea{font-size:16px}.hero{padding:20px}.hero h1{font-size:1.6rem}#modal{padding:10px}#mb{padding:16px;border-radius:18px}.v{font-size:1.5rem}}
 #auth{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto;background:radial-gradient(700px 480px at 82% 0%,rgba(245,134,52,.30),transparent 60%),radial-gradient(900px 620px at 8% 100%,#245237,transparent 62%),#0b1a11}
 #auth::before,#auth::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.12);border-radius:50%;pointer-events:none}
 #auth::before{width:900px;height:900px;left:-320px;bottom:-660px}#auth::after{width:1200px;height:1200px;right:-520px;top:-780px}
-body.locked #auth{display:flex}body.locked header,body.locked main{display:none}
+body.locked #auth{display:flex}body.locked #shell{display:none}
 .acard{position:relative;width:100%;max-width:390px;background:linear-gradient(180deg,#e4f3ea,#fff 46%);color:#14231a;border-radius:26px;padding:34px 30px 26px;box-shadow:0 30px 80px rgba(0,0,0,.5);text-align:center}
 .aic{width:58px;height:58px;margin:0 auto 18px;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(36,82,55,.28);display:grid;place-items:center;color:#245237}
 .acard h2{margin:0 0 6px;font-size:24px;letter-spacing:-.3px}.acard p{margin:0 0 22px;color:#5a6f62;font-size:14.5px}
@@ -70,8 +73,17 @@ body.locked #auth{display:flex}body.locked header,body.locked main{display:none}
 .amini{margin:14px 0 0!important;font-size:12.5px!important;color:#6f7f76!important}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
-<header><div class="brand"><i></i><b id="bn">Office Billing</b></div><nav id="nav"></nav><span id="sync"></span><span id="who"></span><button class="tg" data-act="theme" title="Switch dark or light" aria-label="Switch theme">◐</button></header>
-<main id="main"></main><div id="auth"></div><div id="modal"><div id="mb"></div></div><div id="note"></div>
+<div id="shell" class="flex min-h-screen">
+<div id="scrim" class="fixed inset-0 z-30 hidden bg-black/50 backdrop-blur-sm lg:hidden" data-act="menu"></div>
+<aside id="side" class="glass fixed inset-y-0 left-0 z-40 flex w-72 max-w-[86vw] flex-col gap-5 p-4 transition-transform duration-300 lg:sticky lg:top-3 lg:m-3 lg:h-[calc(100vh-1.5rem)] lg:translate-x-0 lg:rounded-3xl">
+<div class="flex items-center gap-3 px-2 pt-1"><span class="logo"></span><div class="min-w-0"><b id="bn" class="block truncate text-[17px] leading-tight">Office Billing</b><span class="text-xs text-mu">Billing desk</span></div></div>
+<nav id="nav" class="flex flex-col gap-1 overflow-y-auto"></nav>
+<div class="mt-auto space-y-3"><div id="sync" class="px-2 text-xs text-mu"></div><div id="who" class="rounded-2xl bg-c2 p-3"></div>
+<button class="nv" data-act="theme"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg><span>Dark / light</span></button></div>
+</aside>
+<div class="min-w-0 flex-1">
+<div class="glass sticky top-2 z-20 mx-2 mt-2 flex items-center gap-3 rounded-2xl px-3 py-2.5 lg:hidden"><button class="btn g s" data-act="menu" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><b id="bn2" class="min-w-0 flex-1 truncate">Office Billing</b><button class="btn s" data-act="newinv">+ Invoice</button></div>
+<main id="main" class="mx-auto w-full max-w-6xl p-4 pb-16 sm:p-6 lg:p-8"></main></div></div><div id="auth"></div><div id="modal"><div id="mb"></div></div><div id="note"></div>
 <script>
 const S={customers:[],items:[],invoices:[],entries:[],payments:[],biz:{name:'Your Office Name',address:'',phone:'',terms:'Thank you for your business.'}};
 let db=null,view='dashboard',draft=null,q='',lc='',lf='',lt='',pf='all',day=new Date().toISOString().slice(0,10);
@@ -125,9 +137,9 @@ const owes=id=>{const r=ledgerRows(id);return Math.max(0,r.length?r[r.length-1].
 const newLine=()=>({desc:'',qty:1,price:0,disc:0});
 // ---- views
 function render(){
- $('#bn').textContent=S.biz.name||'Office Billing';
- $('#nav').innerHTML=[['dashboard','Dashboard'],['invoices','Invoices'],['estimates','Estimates'],['customers','Customers'],['ledger','Ledger'],['items','Items & rates'],['reports','Reports'],['settings','Settings']].map(([k,l])=>`<button class="${(view===k||(view==='customer'&&k==='customers'))?'on':''}" data-act="nav" data-v="${k}">${l}</button>`).join('');
- $('#main').innerHTML=({dashboard:vDash,invoices:vInv,estimates:vEst,customers:vCust,ledger:vLedger,customer:vLedger,items:vItems,reports:vRep,settings:vSet})[view]();
+ $('#bn').textContent=$('#bn2').textContent=S.biz.name||'Office Billing';
+ $('#nav').innerHTML=NAVS.map(([k,l,ico])=>`<button class="nv ${(view===k||(view==='customer'&&k==='customers'))?'on':''}" data-act="nav" data-v="${k}">${NI[ico]}<span>${l}</span></button>`).join('');
+ $('#main').innerHTML=({dashboard:vDash,invoices:vInv,customers:vCust,ledger:vLedger,customer:vLedger,items:vItems,reports:vRep,settings:vSet})[view]();
 }
 function vDash(){
  const mo=today().slice(0,7);let sales=0,mSales=0,recv=0;
@@ -137,7 +149,7 @@ function vDash(){
  const owing={};for(const c of S.customers){const b=owes(c.id);if(b>0)owing[c.id]=b}
  const top=Object.entries(owing).sort((a,b)=>b[1]-a[1]).slice(0,5);
  const rec=[...INV()].sort((a,b)=>b.date.localeCompare(a.date)||b.no.localeCompare(a.no)).slice(0,5);
- return `<div class="hero"><div><div class="k">${new Date().toDateString()}</div><h1>${esc(S.biz.name)}</h1><div class="mu">Invoices, ledgers and payments in one place.</div></div><div class="acts"><button class="btn" data-act="newinv">+ New invoice</button><button class="btn g" data-act="newest">+ Estimate</button><button class="btn g" data-act="editcust">+ Customer</button></div></div><div class="grid"><div class="card"><div class="k">Total sales</div><div class="v">${inr(sales)}</div></div>
+ return `<div class="hero"><div><div class="k">${new Date().toDateString()}</div><h1>${esc(S.biz.name)}</h1><div class="mu">Invoices, ledgers and payments in one place.</div></div><div class="acts"><button class="btn" data-act="newinv">+ New invoice</button><button class="btn g" data-act="editcust">+ Customer</button></div></div><div class="grid"><div class="card"><div class="k">Total sales</div><div class="v">${inr(sales)}</div></div>
  <div class="card"><div class="k">This month</div><div class="v">${inr(mSales)}</div></div>
  <div class="card"><div class="k">To receive</div><div class="v unpaid">${inr(recv)}</div></div>
  <div class="card"><div class="k">Invoices</div><div class="v">${INV().length}</div></div></div>
@@ -156,7 +168,6 @@ function invTable(list){return list.length?`<table><tr><th>No.</th><th>Date</th>
 function vInv(){
  const l=INV().filter(i=>(i.no+' '+(cust(i.cust)?.name||'walk-in')).toLowerCase().includes(q.toLowerCase())).sort((a,b)=>b.date.localeCompare(a.date)||b.no.localeCompare(a.no));
  return `<div class="bar"><input id="q" placeholder="Search by number or customer" value="${esc(q)}" style="max-width:300px"><button class="btn" data-act="newinv">+ New invoice</button></div><div class="card tw">${invTable(l)}</div>`}
-function vEst(){const l=EST().sort((a,b)=>b.date.localeCompare(a.date));return `<div class="bar"><b>Estimates &amp; quotations</b><button class="btn" data-act="newest">+ New estimate</button></div><div class="card tw">${l.length?`<table><tr><th>No.</th><th>Date</th><th>Customer</th><th class="r">Total</th><th></th></tr>${l.map(i=>`<tr><td>${esc(i.no)}</td><td>${esc(i.date)}</td><td>${esc(cust(i.cust)?.name||'Walk-in')}</td><td class="r">${inr(calc(i).total)}</td><td class="r"><button class="btn g s" data-act="viewinv" data-id="${i.id}">Open</button></td></tr>`).join('')}</table>`:'<p class="mu">No estimates yet.</p>'}</div>`}
 function vCust(){return `<div class="bar"><b>Customers</b><button class="btn" data-act="editcust">+ Add customer</button></div><div class="card tw">${S.customers.length?`<table><tr><th>Name</th><th>Phone</th><th class="r">Owes</th><th></th></tr>${S.customers.map(c=>{const b=owes(c.id);return `<tr><td><b style="cursor:pointer;color:var(--ac)" data-act="openledger" data-id="${c.id}">${esc(c.name)}</b></td><td>${esc(c.phone)}</td><td class="r">${inr(b)}</td><td class="r">${b>0?`<a class="btn g s" target="_blank" rel="noopener" href="${waRemind(c.id)}">Remind</a> `:''}<button class="btn g s" data-act="openledger" data-id="${c.id}">Open page</button> <button class="btn g s" data-act="editcust" data-id="${c.id}">Edit</button></td></tr>`}).join('')}</table>`:'<p class="mu">No customers yet.</p>'}</div>`}
 function vItems(){return `<div class="bar"><b>Items &amp; services</b><button class="btn" data-act="edititem">+ Add item</button></div><div class="card tw">${S.items.length?`<table><tr><th>Name</th><th class="r">Rate / sq ft</th><th></th></tr>${S.items.map(c=>`<tr><td>${esc(c.name)}</td><td class="r">${inr(c.price)}</td><td class="r"><button class="btn g s" data-act="edititem" data-id="${c.id}">Edit</button></td></tr>`).join('')}</table>`:'<p class="mu">No items yet.</p>'}</div>`}
 function vSet(){const b=S.biz;return `<div class="card"><b>Business details</b> <span class="mu">(shown on every invoice)</span><div class="f" style="margin-top:12px">
@@ -292,8 +303,9 @@ function showInv(id){const i=S.invoices.find(x=>x.id===id),c=calc(i),cu=cust(i.c
  <div class="bar np"><span class="tag ${est?'':s}">${est?'estimate':s}</span><span style="display:flex;gap:6px;flex-wrap:wrap">${est?`<button class="btn g" data-act="conv" data-id="${id}">Convert to invoice</button>`:''}<a class="btn g" target="_blank" rel="noopener" href="${waLink(i)}">WhatsApp</a><button class="btn g" data-act="close">Close</button><button class="btn g" data-act="editinv" data-id="${id}">Edit</button><button class="btn" data-act="pdfinv" data-id="${id}">Open PDF</button></span></div>`)}
 // ---- events
 document.addEventListener('click',async e=>{const t=e.target.closest('[data-act]');if(!t)return;const a=t.dataset.act,id=t.dataset.id,v=s=>$(s).value.trim();
- if(a==='nav'){view=t.dataset.v;render()}
+ if(a==='nav'){view=t.dataset.v;document.body.classList.remove('menu');render();window.scrollTo(0,0)}
  else if(a==='close')closeM();
+ else if(a==='menu')document.body.classList.toggle('menu');
  else if(a==='au-go')authGo();
  else if(a==='au-mode')showAuth(t.dataset.m,{email:$('#au-e')?.value||''});
  else if(a==='au-eye'){const i=$('#'+t.dataset.t);i.type=i.type==='password'?'text':'password'}
@@ -372,7 +384,7 @@ function showAuth(mode,extra){Object.assign(au,{mode,err:'',email:''},extra||{})
  +(m==='forgot'?'<div style="margin-top:14px"><button class="alink" data-act="au-mode" data-m="signin">Back to sign in</button></div>':'')
  +(m==='signin'?`<div class="asep">Or sign in with</div><div class="asoc"><button data-act="au-social"><b style="color:#4285F4">G</b> Google</button><button data-act="au-social"><b style="color:#1877F2">f</b> Facebook</button><button data-act="au-social"><b>A</b> Apple</button></div><p class="amini">Need access? Ask your office admin to add you under Settings, Team logins.</p>`:'')+'</div>';
  setTimeout(()=>$('#au-e')?.focus(),40)}
-function startSession(u){cur=u;try{localStorage.setItem(SK,JSON.stringify({e:u.email,t:Date.now()}))}catch(e){}document.body.classList.remove('locked');$('#who').innerHTML=`${esc(u.email)} <button class="btn g s" data-act="signout">Sign out</button>`;render()}
+function startSession(u){cur=u;try{localStorage.setItem(SK,JSON.stringify({e:u.email,t:Date.now()}))}catch(e){}document.body.classList.remove('locked');$('#who').innerHTML=`<div class="flex items-center gap-2"><span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ac font-bold text-[#1b1208]">${esc(u.email[0].toUpperCase())}</span><span class="min-w-0 flex-1 truncate text-sm">${esc(u.email)}</span></div><button class="btn g s mt-2 w-full" data-act="signout">Sign out</button>`;render()}
 async function authGo(){const m=au.mode,err=t=>{au.err=t;$('#au-err').textContent=t},v=id=>($('#'+id)?.value||'').trim();
  if(m==='code')return startSession(au.user);
  if(!window.crypto?.subtle)return err('This browser blocks secure login here. Open the site over https.');
@@ -384,6 +396,9 @@ async function authGo(){const m=au.mode,err=t=>{au.err=t;$('#au-err').textConten
  if(m==='signup'){if(users().length)return err('An account already exists on this browser.');if(pw!==$('#au-p2').value)return err('Passwords do not match.');const{u,code}=await mkUser(em,pw,'admin');saveUsers([u]);return showAuth('code',{code,user:u})}
  if(m==='forgot'){const us=users(),u=us.find(x=>x.email===em),c=v('au-c').replace(/[^A-Za-z0-9]/g,'').toUpperCase();if(!u||(await hashPw(c,u.rsalt))!==u.rhash)return err('Email or recovery code is not correct.');
   const{u:n,code}=await mkUser(em,pw,u.role);saveUsers(us.map(x=>x.email===em?n:x));return showAuth('code',{code,user:n})}}
+const ni=p=>`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const NI={home:ni('<path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M10 20v-6h4v6"/>'),file:ni('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/>'),users:ni('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .8 3.5 2.7 3.5 5.5"/>'),book:ni('<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/><path d="M9 8h6"/>'),tag:ni('<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/>'),chart:ni('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'),gear:ni('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>')};
+const NAVS=[['dashboard','Dashboard','home'],['invoices','Invoices','file'],['customers','Customers','users'],['ledger','Ledger','book'],['items','Items & rates','tag'],['reports','Reports','chart'],['settings','Settings','gear']];
 function teamCard(){if(cur?.role!=='admin')return '';return `<div class="card"><b>Team logins</b><p class="mu">People who can sign in on this browser. Each new person gets a recovery code to reset their own password.</p><div class="tw"><table>${users().map(u=>`<tr><td>${esc(u.email)}</td><td class="mu">${u.role}</td><td class="r">${u.email===cur.email?'<span class="mu">you</span>':`<button class="btn d s" data-act="rmuser" data-e="${esc(u.email)}">Remove</button>`}</td></tr>`).join('')}</table></div><div class="f" style="margin-top:12px"><div><label>Staff email</label><input id="t_e" type="email"></div><div><label>Temporary password (8+ characters)</label><input id="t_p" type="text"></div></div><button class="btn" data-act="adduser">Add staff login</button></div>`}
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.closest('#auth'))$('#au-go')?.click()});
 loadLocal();render();initBackup();initDb();
