@@ -1,5 +1,5 @@
 // 1. Initialize Supabase (Safe to expose publicly with RLS active!)
-const SUPABASE_URL = 'https://supabase.co'; 
+const SUPABASE_URL = 'https://zclkkrwztcedjikopcwc.supabase.co'; 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpjbGtrcnd6dGNlZGppa29wY3djIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwOTM3NjAsImV4cCI6MjEwODY2OTc2MH0.XdHp6HmEjU-EIdTUlfuUCc9o_MYqPmE5VZu1rFNtqHE'; 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
