@@ -31,6 +31,7 @@ The app is implemented as a static HTML application with embedded JavaScript and
 
 ```bash
 my-sales-app/
+├── LICENSE
 ├── README.md
 ├── index.html
 └── assets/ (if added later)
