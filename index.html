@@ -278,6 +278,79 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:1px soli
  table.rt tr{background:var(--glass);border-color:var(--bd);box-shadow:var(--sh1)}
  #mb{background:var(--glass)}
 }
+#modal:has(.inv-form){align-items:center;overflow:hidden;padding:16px}
+#mb:has(.inv-form){display:flex;flex-direction:column;width:min(100%,1080px);max-width:1080px;height:min(900px,calc(100dvh - 32px));max-height:calc(100dvh - 32px);min-height:0;padding:20px 24px 0;overflow:hidden}
+#mb:has(.inv-form)>.mclose{z-index:3}
+.inv-form{display:flex;flex:1;flex-direction:column;min-height:0}
+.inv-form>h3{flex:none;margin:0 44px 12px 0}
+.inv-meta{flex:none}
+.inv-meta .f{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:12px;margin:0 0 6px}
+.inv-meta .hint{min-height:0;margin:0 0 10px}
+.inv-form>.lines{display:flex;flex:1 1 0;flex-direction:column;min-height:120px;max-height:none;overflow:auto;overscroll-behavior:contain}
+.inv-form>.lines>.lh{flex:none;min-height:38px;align-items:center}
+.inv-form>.lines>.lr{flex:none;min-height:48px}
+.inv-form>.lines .lr input{width:100%;min-width:0}
+.inv-addbar{flex:none;gap:8px;margin:8px 0 10px!important}
+.inv-instructions{font-size:12px;text-align:right}
+.inv-bottom{flex:none}
+.inv-payment{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(240px,.9fr);gap:18px;align-items:start}
+.inv-payment .f{grid-template-columns:minmax(0,1.2fr) minmax(150px,.8fr);gap:12px;margin:0}
+.inv-payment .f>div{min-width:0}
+.inv-payment .inl{min-width:0;flex-wrap:wrap}
+.inv-payment .inl input{flex:1;min-width:72px;width:80px}
+.inv-payment .inl .btn{flex:none}
+.inv-payment .tot{max-width:none;margin:0}
+.inv-actions{flex:none;align-items:center;margin:10px 0 0!important;padding:12px 0 calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--bd)}
+#mb:has(.inv-form)>.inv-form>.inv-bottom>.inv-actions{position:static;z-index:auto;background:transparent;border-radius:0}
+@media(max-width:720px){
+ #modal:has(.inv-form){align-items:flex-end;padding:0}
+ #mb:has(.inv-form){width:100%;height:100dvh;max-height:100dvh;padding:16px 12px 0;border-radius:20px 20px 0 0}
+ .inv-form>h3{margin-bottom:10px}
+ .inv-meta .f{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 10px;margin-bottom:4px}
+ .inv-meta .f>div:first-child{grid-column:1/-1}
+ .inv-meta .hint{margin-bottom:8px}
+ .inv-form>.lines{min-height:110px}
+ .inv-form>.lines>.lh,.inv-form>.lines>.lr{display:grid;width:832px;min-width:832px;grid-template-columns:26px 240px 70px 70px 62px 96px 62px 108px 34px}
+ .inv-form>.lines>.lr>.num,.inv-form>.lines>.lr>input,.inv-form>.lines>.lr>.amt,.inv-form>.lines>.lr>.btn{grid-column:auto;grid-row:auto;order:0}
+ .inv-addbar{align-items:flex-start!important;flex-wrap:wrap!important}
+ .inv-instructions{flex:1 1 100%;text-align:left}
+ .inv-payment{grid-template-columns:minmax(0,1fr);gap:8px}
+ .inv-payment .f{grid-template-columns:minmax(0,1.2fr) minmax(105px,.8fr);gap:8px}
+ .inv-payment .tot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+ .inv-payment .tot .due,.inv-payment .tot>div:last-child{grid-column:1/-1}
+ .inv-actions{margin-top:8px!important;padding-top:10px}
+}
+@media(max-width:360px){
+ #mb:has(.inv-form){padding-left:10px;padding-right:10px}
+ .inv-meta .f>div{min-width:0}
+ .inv-meta input,.inv-meta select{min-width:0;padding-left:7px;padding-right:7px;font-size:13px}
+ .inv-payment{grid-template-columns:minmax(0,1fr);gap:6px}
+ .inv-payment .f{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:6px}
+ .inv-payment .tot{display:grid;grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 10px;font-size:11px}
+ .inv-payment .tot div{padding:2px 0;gap:3px;white-space:nowrap}
+ .inv-payment .tot .due,.inv-payment .tot>div:last-child{grid-column:1/-1}
+ .inv-payment .tot .mu{font-size:10px}
+ .inv-payment .inl{gap:4px}
+ .inv-payment .inl input{min-width:55px;width:60px;padding-left:7px;padding-right:7px}
+ .inv-payment .inl .btn{padding-left:4px;padding-right:4px;font-size:10px}
+ .inv-addbar{margin-bottom:6px!important}
+ .inv-instructions{font-size:10px;line-height:1.25}
+}
+@media(max-height:700px) and (max-width:720px){
+ .inv-meta{max-height:27vh;overflow:auto;overscroll-behavior:contain}
+ .inv-form>.lines{min-height:80px}
+}
+@media(max-height:520px) and (max-width:720px){
+ #mb:has(.inv-form){padding-top:8px}
+ .inv-form>h3{margin-bottom:6px}
+ .inv-meta{max-height:16vh}
+ .inv-form>.lines{min-height:96px}
+ .inv-addbar{margin:4px 0!important}
+ .inv-instructions{font-size:9px;line-height:1.1}
+ .inv-payment .f label{font-size:11px;margin-bottom:3px}
+ .inv-payment .tot div{padding:0}
+ .inv-actions{margin-top:4px!important;padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
+}
 </style></head><body>
 <a class="skip" href="#main">Skip to content</a>
 <div id="shell" class="app">
@@ -798,13 +871,12 @@ function custForm(id){const c=cust(id)||{};openM(`<h3>${id?'Edit':'Add'} custome
 function itemForm(id){const c=S.items.find(x=>x.id===id)||{};openM(`<h3>${id?'Edit':'Add'} item</h3><div class="f"><div><label>Name</label><input id="i_name" value="${esc(c.name)}"></div><div><label>Rate per sq foot / price (Rs.)</label><input id="i_price" type="number" step="any" value="${c.price??''}"></div></div>
 <div class="bar"><span>${id?`<button class="btn d" data-act="delitem" data-id="${id}">Delete</button>`:''}</span><span><button class="btn g" data-act="close">Cancel</button> <button class="btn" data-act="saveitem" data-id="${id||''}">Save</button></span></div>`)}
 function invForm(){const d=draft;
- openM(`<h3>${d.isNew?'New':'Edit'} ${d.type==='estimate'?'estimate':'invoice'} ${esc(d.no)}</h3><div class="errbox" id="f_err" hidden role="alert"></div><div class="f"><div><label>Customer</label><select id="d_cust"><option value="">Walk-in customer</option>${S.customers.map(c=>`<option value="${c.id}" ${c.id===d.cust?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><div><label>Date</label><input id="d_date" type="date" value="${d.date}"></div><div><label>Invoice no.</label><input id="d_no" value="${esc(d.no)}" maxlength="30" autocomplete="off"></div></div><div class="hint" id="d_hint"></div>
+ openM(`<div class="inv-form"><h3>${d.isNew?'New':'Edit'} ${d.type==='estimate'?'estimate':'invoice'} ${esc(d.no)}</h3><div class="inv-meta"><div class="errbox" id="f_err" hidden role="alert"></div><div class="f"><div><label>Customer</label><select id="d_cust"><option value="">Walk-in customer</option>${S.customers.map(c=>`<option value="${c.id}" ${c.id===d.cust?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div><div><label>Date</label><input id="d_date" type="date" value="${d.date}"></div><div><label>Invoice no.</label><input id="d_no" value="${esc(d.no)}" maxlength="30" autocomplete="off"></div></div><div class="hint" id="d_hint"></div></div>
  <datalist id="dlItems">${S.items.map(i=>`<option value="${esc(i.name)}">${i.price} per unit</option>`).join('')}</datalist>
  <div class="lines"><div class="lh"><span>#</span><span>Item / description</span><span>Width</span><span>Height</span><span>Qty</span><span>Rate</span><span>Disc %</span><span style="text-align:right">Amount</span><span></span></div>${d.lines.map((l,n)=>`<div class="lr"><span class="num">${n+1}</span><input data-l="${n}" data-k="desc" aria-label="Item or description, line ${n+1}" list="dlItems" value="${esc(l.desc)}" placeholder="Type or pick an item" autocomplete="off"><input data-l="${n}" data-k="w" type="number" step="any" inputmode="decimal" placeholder="Width" aria-label="Width, line ${n+1}" value="${l.w||''}"><input data-l="${n}" data-k="h" type="number" step="any" inputmode="decimal" placeholder="Height" aria-label="Height, line ${n+1}" value="${l.h||''}"><input data-l="${n}" data-k="qty" type="number" step="any" inputmode="decimal" placeholder="Qty" aria-label="Qty, line ${n+1}" value="${l.qty}"><input data-l="${n}" data-k="price" type="number" step="any" inputmode="decimal" placeholder="Rate" aria-label="Rate, line ${n+1}" value="${l.price||''}"><input data-l="${n}" data-k="disc" type="number" step="any" inputmode="decimal" placeholder="Disc %" aria-label="Disc %, line ${n+1}" value="${l.disc||''}"><span class="amt" id="la${n}">${inr(lineAmt(l))}</span><button class="btn d s" data-act="rmline" data-n="${n}" title="Remove line" tabindex="-1">✕</button></div>`).join('')}</div>
- <div class="bar" style="margin:8px 0 14px"><span style="display:flex;gap:8px"><button class="btn g s" data-act="addline">+ Add line</button><button class="btn g s" data-act="addline" data-n="5">+ Add 5 lines</button></span><span class="mu" style="font-size:12px;text-align:right">Enter = next box. Ctrl+Enter = save.<br>Flex: width × height × qty × rate. Fixed price: leave size empty.</span></div>
- <div class="f"><div><label>Amount received now (Rs.)</label><div class="inl"><input id="d_paid" type="number" step="any" min="0" value="${d.paid||0}"><button type="button" class="btn g s" data-act="payfull">Paid in full</button></div></div><div><label>Payment mode</label><select id="d_mode">${['Cash','Bank transfer','Easypaisa','JazzCash','Cheque','Card'].map(m=>`<option ${m===d.mode?'selected':''}>${m}</option>`).join('')}</select></div></div>
- <div class="tot" id="tot"></div>
- <div class="bar" style="margin-top:12px"><span>${d.isNew?'':`<button class="btn d" data-act="delinv" data-id="${d.id}">Delete</button>`}</span><span><button class="btn g" data-act="close">Cancel</button> <button class="btn" data-act="saveinv">Save</button></span></div>`);totals();custHint()}
+ <div class="bar inv-addbar"><span style="display:flex;gap:8px"><button class="btn g s" data-act="addline">+ Add line</button><button class="btn g s" data-act="addline" data-n="5">+ Add 5 lines</button></span><span class="mu inv-instructions">Enter = next box. Ctrl+Enter = save.<br>Flex: width × height × qty × rate. Fixed price: leave size empty.</span></div>
+ <div class="inv-bottom"><div class="inv-payment"><div class="f"><div><label>Amount received now (Rs.)</label><div class="inl"><input id="d_paid" type="number" step="any" min="0" value="${d.paid||0}"><button type="button" class="btn g s" data-act="payfull">Paid in full</button></div></div><div><label>Payment mode</label><select id="d_mode">${['Cash','Bank transfer','Easypaisa','JazzCash','Cheque','Card'].map(m=>`<option ${m===d.mode?'selected':''}>${m}</option>`).join('')}</select></div></div><div class="tot" id="tot"></div></div>
+ <div class="bar inv-actions"><span>${d.isNew?'':`<button class="btn d" data-act="delinv" data-id="${d.id}">Delete</button>`}</span><span><button class="btn g" data-act="close">Cancel</button> <button class="btn" data-act="saveinv">Save</button></span></div></div></div>`);totals();custHint()}
 function totals(){if(!draft)return;draft.lines.forEach((l,n)=>{const e=$('#la'+n);if(e)e.textContent=inr(lineAmt(l))});const c=calc(draft),paid=num(draft.paid),over=paid>c.total+TOL,bal=Math.max(0,c.total-paid);
  dq('#tot').innerHTML=`<div><span class="mu">Subtotal</span><span>${inr(c.sub)}</span></div><div><span class="mu">Discount</span><span>−${inr(c.disc)}</span></div><div><b>Total</b><b>${inr(c.total)}</b></div><div><span class="mu">Received now</span><span>${inr(paid)}</span></div><div class="due ${over?'unpaid':(bal<=0&&c.total>0?'paid':'')}"><b>Balance due</b><b>${inr(bal)}</b></div>${over?'<div class="unpaid sm">Received is more than the total.</div>':(c.total>0&&bal<=0?'<div class="paid sm">Paid in full</div>':'')}`}
 function readDraft(){draft.cust=dq('#d_cust').value;draft.date=dq('#d_date').value;draft.paid=+dq('#d_paid').value||0;draft.mode=dq('#d_mode').value;const nv=$('#d_no');if(nv)draft.no=nv.value.trim()}
