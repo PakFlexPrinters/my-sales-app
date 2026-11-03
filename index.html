@@ -144,15 +144,16 @@ input.bad,select.bad,textarea.bad{border-color:var(--bad)!important;box-shadow:0
 .lh{position:sticky;top:0;z-index:1;background:var(--bg);color:var(--mu);font-size:12px;font-weight:600;padding:9px 8px;border-bottom:0}
 .lr input{padding:6px 8px;min-height:34px;font-size:14px;border-radius:8px}.lr .num{color:var(--mu);font-size:12px;text-align:center}.lr .amt{text-align:right;font-size:13.5px;font-weight:600;white-space:nowrap}.lr .btn{height:30px;min-height:0;padding:0}
 .lr:focus-within{background:var(--surface2)}
-#note{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:20px;z-index:200;display:flex;flex-direction:column;gap:10px;width:min(390px,calc(100vw - 32px));pointer-events:none}
-.toast{--toast-tone:#d4d4d8;display:grid;grid-template-columns:30px minmax(0,1fr) 30px;align-items:start;gap:12px;padding:14px;background:rgba(25,26,29,.94);color:#f4f4f5;border:1px solid rgba(244,244,245,.14);border-left:3px solid var(--toast-tone);border-radius:16px;box-shadow:0 16px 38px rgba(0,0,0,.32);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);pointer-events:auto;animation:toast-in .22s ease-out both;transition:opacity .2s ease,transform .2s ease}
+#note{position:fixed;left:50%;bottom:24px;z-index:200;display:flex;flex-direction:column;gap:10px;width:min(390px,calc(100vw - 32px));transform:translateX(-50%);pointer-events:none}
+#note:empty{display:none}
+.toast{--toast-tone:#d4d4d8;display:grid;grid-template-columns:30px minmax(0,1fr) 30px;align-items:start;gap:12px;padding:14px;background:rgba(235,235,238,.1);color:#f4f4f5;border:0;border-radius:16px;box-shadow:0 10px 28px rgba(0,0,0,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);pointer-events:auto;animation:toast-in .22s ease-out both;transition:opacity .2s ease,transform .2s ease}
 .toast.success{--toast-tone:#a9c5ae}.toast.warning{--toast-tone:#d2b778}.toast.error{--toast-tone:#d19b9b}.toast.info{--toast-tone:#c4c4ca}
-.toast.is-leaving{opacity:0;transform:translateX(12px)}
+.toast.is-leaving{opacity:0;transform:translateY(8px)}
 .toast-icon{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:color-mix(in srgb,var(--toast-tone) 17%,transparent);color:var(--toast-tone);font-size:14px;font-weight:700}
 .toast-message{min-width:0;padding-top:3px;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
 .toast-close{width:28px;height:28px;margin:-4px -4px 0 0;border-radius:8px;color:#b4b4bb;font-size:21px;line-height:1;pointer-events:auto}
 .toast-close:hover,.toast-close:focus-visible{background:rgba(244,244,245,.1);color:#fff}
-@keyframes toast-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toast-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .fx>*{animation:up .35s cubic-bezier(.2,.7,.2,1) both}.fx>*:nth-child(2){animation-delay:.04s}.fx>*:nth-child(3){animation-delay:.08s}.fx>*:nth-child(4){animation-delay:.12s}
 /* ---------- phones: cards instead of tables, sheets instead of dialogs ---------- */
@@ -176,8 +177,7 @@ input.bad,select.bad,textarea.bad{border-color:var(--bad)!important;box-shadow:0
  .lr .num{order:-2;grid-column:span 9;text-align:left;font-weight:600}.lr .btn{order:-1;grid-column:span 3;height:34px}
  .lr input:nth-of-type(1){grid-column:span 12}.lr input:nth-of-type(2),.lr input:nth-of-type(3),.lr input:nth-of-type(4){grid-column:span 4}.lr input:nth-of-type(5),.lr input:nth-of-type(6){grid-column:span 4}.lr .amt{grid-column:span 4;align-self:center}
  input,select,textarea{font-size:16px}
- #note{top:auto;right:auto;left:50%;bottom:calc(104px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(390px,calc(100vw - 24px))}
- .toast.is-leaving{transform:translateY(8px)}
+ #note{bottom:calc(104px + env(safe-area-inset-bottom,0px));width:min(390px,calc(100vw - 24px))}
 }
 @media(pointer:coarse){.btn{min-height:46px}.btn.s{min-height:40px}input,select,textarea{min-height:46px}.nv{min-height:48px}.iconbtn{width:44px;height:44px}.chip{min-height:42px}.lr input{min-height:42px}}
 #auth{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto;background:var(--bg)}
